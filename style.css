@@ -1,0 +1,340 @@
+/* Core Variables */
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --card-bg: #1e293b;
+    --nav-bg: rgba(30, 41, 59, 0.85);
+    --primary-color: #60a5fa;
+    --primary-hover: #93c5fd;
+    --border-color: #334155;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset & Smooth Scroll */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Glassmorphism Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-right: 1.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.15) rotate(10deg);
+}
+
+/* Sections & Scroll Reveal */
+section {
+    padding: 1rem 0 3rem 0;
+}
+
+/* Initial state for scroll animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Added by JavaScript when visible */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    min-height: 60px; /* Prevents layout jump while typing */
+}
+
+body.dark-mode .subtitle { color: #94a3b8; }
+
+/* Typing Cursor */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em; /* Scales perfectly with text height */
+    background-color: var(--primary-color);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+/* Hero Avatar Placeholder */
+.avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.date {
+    font-size: 0.85rem;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Buttons */
+.contact-links { display: flex; gap: 1rem; }
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+    /* Added to ensure regular buttons look consistent */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    display: inline-flex; /* Required to align icon and text */
+    align-items: center;  /* Centers them vertically */
+    gap: 0.5rem;          /* Adds a clean space between icon and text */
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .contact-links {
+        justify-content: center;
+    }
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* =========================================
+   Footer & Bottom Icons
+   ========================================= */
+.footer {
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    /* Using a slightly muted color so it isn't distracting */
+    color: #64748b; 
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+}
+
+/* Adjust the muted color for dark mode */
+body.dark-mode .social-icons a {
+    color: #94a3b8;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   Clickable Certification Card
+   ========================================= */
+
+/* Makes the link behave exactly like a block container */
+a.card {
+    display: block; 
+    text-decoration: none; 
+    color: var(--text-color); 
+    cursor: pointer;
+}
+
+/* Prevents the text inside from turning blue like a standard link */
+a.card h3, 
+a.card p {
+    color: var(--text-color);
+}
+
+/* Aligns the date and the icon */
+.cert-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Subtle icon color */
+.external-icon {
+    color: #94a3b8; 
+    transition: color 0.3s ease;
+}
+
+/* Lights up the icon when you hover the card */
+a.card:hover .external-icon {
+    color: var(--primary-color);
+}
