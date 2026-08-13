@@ -1,26 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️';
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
-            themeToggle.textContent = '☀️';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeToggle.textContent = '🌙';
-            localStorage.setItem('theme', 'light');
-        }
-    });
-
-    // 2. Typing Effect for Subtitle
+    // 1. Typing Effect for Subtitle
     const text = "I'm a student and developer focused on building clean, functional web experiences.";
     const typingElement = document.getElementById('typewriter');
     let i = 0;
@@ -35,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start typing after a short delay
     setTimeout(typeWriter, 500);
 
-    // 3. Scroll Reveal Animations
+    // 2. Scroll Reveal Animations
     const reveals = document.querySelectorAll('.reveal');
 
     const revealOnScroll = () => {
