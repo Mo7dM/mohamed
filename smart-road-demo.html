@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-road browser demo | Mohamed</title>
+    <meta name="description" content="A simplified JavaScript sketch of the smart-road traffic simulation, a Rust and SDL2 project by Mohamed.">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <p><a href="index.html">&larr; Back to portfolio</a></p>
+            <h1>smart-road browser demo</h1>
+            <p>A simplified JavaScript sketch of cars crossing an intersection without traffic lights. Green cars slow down for crossing traffic.</p>
+            <p>The full project is written in Rust with SDL2 and includes turning routes and simulation statistics. This sketch illustrates the idea; it is not the Rust application.</p>
+            <p><a href="https://github.com/Mo7dM/smart-road">Explore the Rust source &amp; run instructions</a></p>
+        </header>
+        <figure class="sim">
+            <canvas id="road" role="img" aria-label="Animated sketch of cars crossing an intersection without traffic lights"></canvas>
+            <figcaption>
+                <span>Traffic simulation sketch</span>
+                <span class="meta" id="road-count"></span>
+            </figcaption>
+        </figure>
+        <noscript><p>Enable JavaScript to view the animation. The full project's source and run instructions are available at the link above.</p></noscript>
+    </main>
+</body>
+</html>
